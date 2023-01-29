@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import PropTypes from 'prop-types';
 
 export class ContactListItem extends Component {
     render() {
@@ -13,3 +14,11 @@ export class ContactListItem extends Component {
     }
 
 }
+
+ContactListItem.propTypes = {
+    contact: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+    }).isRequired,
+    deleteContact: PropTypes.func.isRequired
+};

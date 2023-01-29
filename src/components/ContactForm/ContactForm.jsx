@@ -1,5 +1,6 @@
 import { Component } from "react";
 import shortid from 'shortid';
+import PropTypes from 'prop-types';
 
 export class ContactForm extends Component {
     state = {
@@ -71,3 +72,7 @@ export class ContactForm extends Component {
         );
     }
 }
+
+ContactForm.propTypes = {
+    formSubmitHandle: PropTypes.func.isRequired
+};
