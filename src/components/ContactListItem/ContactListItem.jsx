@@ -4,7 +4,10 @@ export class ContactListItem extends Component {
     render() {
         return (
             <>
-                <li>{this.props.contact.name}: {this.props.contact.number}</li>
+                <li>
+                    <span>{this.props.contact.name}: {this.props.contact.number} </span>
+                    <button  type="button" onClick={this.props.deleteContact}>Delete</button>
+                </li>
             </>
         );
     }

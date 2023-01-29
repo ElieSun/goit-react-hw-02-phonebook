@@ -5,6 +5,7 @@ import { Filter } from "components/Filter/Filter";
 
 
 export class App extends Component {
+  notifications = false;
   state = {
     contacts: [
       {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
@@ -16,9 +17,14 @@ export class App extends Component {
   };
 
   formSubmitHandle = (contact) => {
-    this.setState(({contacts}) => ({
-      contacts: [...contacts, contact]
-    }))
+    const notification = this.state.contacts.find(item => item.name === contact.name);
+    if (notification) {
+        alert(`${contact.name} is already in contacts`)
+    } else {
+      this.setState(({contacts}) => ({
+        contacts: [...contacts, contact]
+      }))
+    }
   }
 
   filterContact = (search) => {
@@ -27,6 +33,11 @@ export class App extends Component {
     }))
   }
 
+  deleteContact = contactId => {
+    this.setState(({contacts}) => ({
+      contacts: contacts.filter(contact => contact.id !== contactId)
+    }))
+  }
 
   render () {
     return (
@@ -37,7 +48,11 @@ export class App extends Component {
         />
         <h2>Contacts</h2>
         <Filter filter={this.state.filter} filterContact={this.filterContact}/>
-        <ContactList contacts={this.state.contacts} filter={this.state.filter}/>
+        <ContactList 
+          contacts={this.state.contacts} 
+          filter={this.state.filter} 
+          deleteContact={this.deleteContact}
+        />
       </div>
     );
   }

@@ -11,7 +11,11 @@ export class ContactList extends Component {
                 const number = contact.number;
                 const filter = this.props.filter.toLowerCase();
                 if (name.includes(filter) || number.includes(filter))
-                    return <ContactListItem key={contact.id} contact={contact}/>
+                    return <ContactListItem 
+                            key={contact.id} 
+                            contact={contact}
+                            deleteContact={() => this.props.deleteContact(contact.id)}
+                        />
                 else 
                     return null;
             })}
