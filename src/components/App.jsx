@@ -2,6 +2,7 @@ import { Component } from "react";
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "components/Filter/Filter";
+import { Phonebook, MainTitle, SubTitle } from "./App.styled";
 
 
 export class App extends Component {
@@ -41,19 +42,19 @@ export class App extends Component {
 
   render () {
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Phonebook>
+        <MainTitle>Phonebook</MainTitle>
         <ContactForm
           formSubmitHandle={this.formSubmitHandle}
         />
-        <h2>Contacts</h2>
+        <SubTitle>Contacts</SubTitle>
         <Filter filter={this.state.filter} filterContact={this.filterContact}/>
         <ContactList 
           contacts={this.state.contacts} 
           filter={this.state.filter} 
           deleteContact={this.deleteContact}
         />
-      </div>
+      </Phonebook>
     );
   }
   

@@ -1,5 +1,6 @@
 import { Component } from "react";
 import PropTypes from 'prop-types';
+import { Input } from 'components/Filter/Filter.styled'
 
 export class Filter extends Component {
     
@@ -11,11 +12,12 @@ export class Filter extends Component {
     render() {
         return(
     <>
-    <input
+    <Input
     type="text"
     name="filter"
     value={this.props.filter}
     onChange={this.handleChange}
+    placeholder='Search...'
     />
     </>
         )

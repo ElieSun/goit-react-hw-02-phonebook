@@ -1,14 +1,15 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types';
+import { Item, Button } from 'components/ContactListItem/ContactListItem.styled'
 
 export class ContactListItem extends Component {
     render() {
         return (
             <>
-                <li>
+                <Item>
                     <span>{this.props.contact.name}: {this.props.contact.number} </span>
-                    <button  type="button" onClick={this.props.deleteContact}>Delete</button>
-                </li>
+                    <Button  type="button" onClick={this.props.deleteContact}>Delete</Button>
+                </Item>
             </>
         );
     }
